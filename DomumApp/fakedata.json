@@ -1,0 +1,17 @@
+//Ext.data.JsonP.callback2([{DeviceId:'medeviceid', DeviceType:'dimmer', DeviceName:'LampeSalon', DeviceStatus:'On'}])
+Ext.data.JsonP.callback4([{DeviceId:'medeviceid', DeviceType:'dimmer', DeviceName:'LampeSalon', DeviceStatus:'On'}])
+//Ext.data.JsonP.callback5([{DeviceId:1234,
+//                           DeviceType:'dimmer',
+//                           DeviceName:'LampeSalon',
+//                           DeviceStatus:'On',
+//                           DeviceDetails:{ScheduleId:'3323',ScheduleTo:'to',ScheduleFrom:'from',ScheduleConfig:'how high are you?'}}])
+//Ext.data.JsonP.callback5([{DeviceId:1234,
+//                           DeviceType:'dimmer',
+//                           DeviceName:'LampeSalon',
+//                           DeviceSchedule:[{ScheduleId:13, ScheduleTo:'10:30', ScheduleFrom:'09:00', ScheduleConfig:{status:'on', value:'50%'}},
+//                                           {ScheduleId:14, ScheduleTo:'11:30', ScheduleFrom:'10:50', ScheduleConfig:{status:'off', value:'0%'}},
+//                                           {ScheduleId:15, ScheduleTo:'23:30', ScheduleFrom:'17:00', ScheduleConfig:{status:'on', value:'50%'}}
+//                                          ]
+//                          }
+//                         ]
+//                        )

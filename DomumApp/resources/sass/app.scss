@@ -1,0 +1,45 @@
+// ----------------------------------------------------------------------------
+// This file is part of "Curuba Mobile".
+//
+// "Curuba Mobile" is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// "Curuba Mobile" is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with "Curuba Mobile".  If not, see <http://www.gnu.org/licenses/>.
+// ----------------------------------------------------------------------------
+$base_color: #507D93;
+
+@import 'sencha-touch/default/all';
+
+// You may remove any of the following modules that you
+// do not use in order to create a smaller css file.
+@include sencha-panel;
+@include sencha-buttons;
+//@include sencha-sheet;
+//@include sencha-picker;
+@include sencha-tabs;
+@include sencha-toolbar;
+//@include sencha-toolbar-forms;
+//@include sencha-indexbar;
+@include sencha-list;
+@include sencha-layout;
+@include sencha-form;
+//@include sencha-msgbox;
+
+// Your custom code goes here...
+
+@import "button";
+@import "chartContainer";
+@import "statisticsChart";
+@import "chartAxes";
+@import "device";
+@import "font-awesome";
+@import "tutorial";
+@import "configDevice";

@@ -1,0 +1,91 @@
+// ----------------------------------------------------------------------------
+// This file is part of "Curuba Mobile".
+//
+// "Curuba Mobile" is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// "Curuba Mobile" is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with "Curuba Mobile".  If not, see <http://www.gnu.org/licenses/>.
+// ----------------------------------------------------------------------------
+{
+    "name": "Domum",
+    "js": [
+        {
+            "path": "../sencha-touch-all-debug.js"
+        },
+        {
+            "path": "app.js",
+            "update": "delta"
+        },
+        {
+            "path":"app/store/Proxy.js"
+        },
+        {
+            "path":"app/view/Layouts.js"
+        },
+        {
+            "path":"app/utils/events/Publisher.js"
+        },
+        {
+            "path":"app/utils/factory/templates/ViewFactoryTemplates.js"
+        },
+        {
+            "path":"app/utils/factory/ViewFactory.js"
+        },
+        {
+            "path":"app/utils/factory/StoreFactory.js"
+        },
+        {
+            "path":"app/utils/Constants.js"
+        },
+		{
+			"path":"../commun/queries.js"
+		},
+        {
+            "path":"../commun/lang/lang.js"
+        }
+    ],
+    "css": [
+        {
+            "path": "resources/css/app.css",
+            "update": "delta"
+        }
+    ],
+    "appCache": {
+        "cache": [
+            "index.html",
+            "contacts.json"
+        ],
+        "network": [
+            "*"
+        ],
+        "fallback": []
+    },
+    "extras": [
+        "contacts.json",
+        "resources/images",
+        "resources/icons",
+        "resources/loading"
+    ],
+    "archivePath": "archive",
+    "buildPaths": {
+        "testing": "../../deploy/testing/navigationview",
+        "production": "../../deploy/production/navigationview",
+        "package": "../../deploy/package/navigationview",
+        "native": "../../deploy/native/navigationview"
+    },
+    "buildOptions": {
+        "product": "touch",
+        "minVersion": 3,
+        "debug": false,
+        "logger": "no"
+    },
+    "id": "3a867610-670a-11e1-a90e-4318029d18bb"
+}
