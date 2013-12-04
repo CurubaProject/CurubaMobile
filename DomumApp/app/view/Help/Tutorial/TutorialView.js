@@ -12,9 +12,6 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
             }
         },
 
-        // TODO belm (2013-12-01) - changer le style des ronds qui indiquent à quelle page on est pour être plus visible.
-
-        // TODO belm: use string internationalization object instead of constant strings.
         items: [
             {
                xtype: 'container',
@@ -92,7 +89,7 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                       html: language.get('TUTORIAL_TEXT_SYSTEM_INTRODUCTION')
                    }]
                 }]
-                // TODO  ajouter image du systeme.
+                // TODO belm : Add an image of the system.
             },
             {
                 xtype: 'container',
@@ -178,10 +175,9 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                    cls : 'containerTutorial',
                    items : [{
                       html: language.get('TUTORIAL_TEXT_SERVER_CONFIGURATION')
+                      // TODO belm : give the procedure to give the server the wifi password.
                    }]
                 }]
-                // TODO : montage des modules - Ajouter le mot de passe dans la section settings avant de programmer.
-                // TODO : demander à Jo les détails
             },
             {
                 xtype: 'container',
@@ -205,10 +201,7 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                         ]
                      }
                 ]
-                // TODO : montage des modules - assembler les modules de contrôle et d'application si pas montés
-                // mettre image de comment assembler. (avec les vis)
-                // TODO : montage des modules - donner un avertissement de sécurité et suggérer de protèger les circuits dans l'epoxy.
-                // Dire explicitement que si il n'y a pas d'epoxy, on ne doit pas le mettre dans le mur.
+                // TODO belm : insert images about how to assemble the modules.
             },
             {
                 xtype: 'container',
@@ -219,8 +212,7 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                       html: language.get('TUTORIAL_TEXT_DEVICE_ASSEMBLY_WIRING')
                    }]
                 }]
-                // TODO : montage des modules - Souder des fils de sortie sur le board. Connecter les fils + crimper.
-                // image de comment faire.
+                // TODO belm : insert image about how to install the wires on the module.
             },
             {
                 xtype: 'container',
@@ -231,8 +223,7 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                       html: language.get('TUTORIAL_TEXT_DEVICE_ASSEMBLY_AJUST_DEVICE_PURPOSE')
                    }]
                 }]
-                // TODO : montage des modules - Ajuster les dip switches.
-                // image des dip switches.
+                // TODO belm : insert image of the dip switches configurations.
             },
             {
                 xtype: 'carousel',
@@ -247,7 +238,6 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                               html: language.get('TUTORIAL_TEXT_DEVICE_CONFIGURATION_PLUG')
                            }]
                         }]
-                        // TODO : montage des modules - pré-configuration avec fil mini-usb et le serveur.
                     },
                     {
                         xtype: 'container',
@@ -258,11 +248,6 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                               html: language.get('TUTORIAL_TEXT_DEVICE_CONFIGURATION_LIGHT_SIGNIFICATION')
                            }]
                         }]
-                        // lumiere verte = power
-                        // lumiere jaune = communication usb
-                        // lumiere jaune qui blink 10Hz = problème.
-                        // lumiere jaune qui est allumée tout le temps = communication terminée.
-                        // Lumiere jaune qui blink a 1-2Hz = communication qui se fait - il faut pas débrancher rien.
                     }
                 ]
             },
@@ -275,7 +260,6 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                       html: language.get('TUTORIAL_TEXT_DEVICE_CONFIGURATION_UNPLUG')
                    }]
                 }]
-                // TODO : montage des modules - débrancher.
             },
             {
                 xtype: 'container',
@@ -286,48 +270,17 @@ Ext.define('Domum.view.Help.Tutorial.TutorialView', {
                       html: language.get('TUTORIAL_TEXT_DEVICE_INSTALLATION_WIRING')
                    }]
                 }]
-                // TODO : montage des modules - mettre le module dans le boîtier.
-                // Images des connexion de fils de sylvain modifiées par Mo.
+                // TODO belm : insert images about how to wire the module to the power.
             },
             {
-                xtype: 'carousel',
-                direction: 'vertical',
-                items: [
-                    {
-                        xtype: 'container',
-                        items: [{
-                           xtype: 'container',
-                           cls : 'containerTutorial',
-                           items : [{
-                              html: language.get('TUTORIAL_TEXT_DEVICE_INSTALLATION_LIGHT_SIGNIFICATION')
-                           }]
-                        }]
-                        // lumiere verte = power
-                        // lumiere jaune = communication usb
-                        // lumiere jaune qui blink 10Hz = problème.
-                        // Lumiere jaune qui blink < 0.5Hz = communication qui se fait - tout est correct.
-                    },
-                    {
-                        xtype: 'container',
-                        items: [{
-                           xtype: 'container',
-                           cls : 'containerTutorial',
-                           items : [{
-                              html: 'Problème #1'
-                           }]
-                        }]
-                    },
-                    {
-                        xtype: 'container',
-                        items: [{
-                           xtype: 'container',
-                           cls : 'containerTutorial',
-                           items : [{
-                              html: 'Problème #2'
-                           }]
-                        }]
-                    }
-                ]
+                xtype: 'container',
+                items: [{
+                   xtype: 'container',
+                   cls : 'containerTutorial',
+                   items : [{
+                      html: language.get('TUTORIAL_TEXT_DEVICE_INSTALLATION_LIGHT_SIGNIFICATION')
+                   }]
+                }]
             },
             {
                 xtype: 'container',

@@ -112,15 +112,14 @@ Ext.define('Domum.controller.Devices.DevicesController', {
         // Setup the proxy with the right device.
         this.selectedDeviceId = record.data.DeviceId;
         this.deviceDetailsStore = StoreFactory.DeviceDetailsStore.create();
-        this.deviceDetailsStore.setProxy(Proxy.getProxy(DeviceDetailsRequest, {DeviceId:this.selectedDeviceId})); // TODO Change DeviceId to an object
+        this.deviceDetailsStore.setProxy(Proxy.getProxy(DeviceDetailsRequest, {DeviceId:this.selectedDeviceId})); // TODO Change DeviceId to an object?
         this.deviceDetailsStore.load();
         // TODO belm : we must do something when it doesn't load correctly.
     },
 
     configureDevice: function () {
         // Setup the proxy with the right device.
-        // TODO belm (2013-11-29): move this to the store factory.
-        this.DeviceConfigurationStore = StoreFactory.DeviceConfigurationStore.create();//Ext.create('Domum.store.Devices.DeviceConfigurationStore');
+        this.DeviceConfigurationStore = StoreFactory.DeviceConfigurationStore.create();
         this.DeviceConfigurationStore.setProxy(Proxy.getProxy(DeviceConfigurationRequest, {DeviceId:this.selectedDeviceId})); // TODO
         this.DeviceConfigurationStore.load();
         // TODO belm : we must do something when it doesn't load correctly.
@@ -148,7 +147,8 @@ Ext.define('Domum.controller.Devices.DevicesController', {
 
     changeDeviceStatus: function (param) { // TODO belm : this is state or status?
         var requestParams = {};
-        requestParams.DeviceId = this.deviceDetailsStore.first().data.DeviceId;
+        requestParams.DeviceId = this.deviceDetailsStore.first().data.DeviceId.DeviceId;
+        requestParams.DeviceNumber = this.deviceDetailsStore.first().data.DeviceId.DeviceNumber;
         requestParams.Parameters = Ext.JSON.encode(param); // Passing an object here makes it an array in the server. why?
         Proxy.JsonPRequest(SetDeviceState, requestParams, function (e, ee) {
             alert('success');
