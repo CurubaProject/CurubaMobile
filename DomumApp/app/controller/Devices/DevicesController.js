@@ -112,7 +112,7 @@ Ext.define('Domum.controller.Devices.DevicesController', {
         // Setup the proxy with the right device.
         this.selectedDeviceId = record.data.DeviceId;
         this.deviceDetailsStore = StoreFactory.DeviceDetailsStore.create();
-        this.deviceDetailsStore.setProxy(Proxy.getProxy(DeviceDetailsRequest, {DeviceId:this.selectedDeviceId})); // TODO Change DeviceId to an object?
+        this.deviceDetailsStore.setProxy(Proxy.getProxy(DeviceDetailsRequest, {DeviceId:this.selectedDeviceId.DeviceId, DeviceNumber: this.selectedDeviceId.DeviceNumber})); // TODO Change DeviceId to an object?
         this.deviceDetailsStore.load();
         // TODO belm : we must do something when it doesn't load correctly.
     },
@@ -120,7 +120,7 @@ Ext.define('Domum.controller.Devices.DevicesController', {
     configureDevice: function () {
         // Setup the proxy with the right device.
         this.DeviceConfigurationStore = StoreFactory.DeviceConfigurationStore.create();
-        this.DeviceConfigurationStore.setProxy(Proxy.getProxy(DeviceConfigurationRequest, {DeviceId:this.selectedDeviceId})); // TODO
+        this.DeviceConfigurationStore.setProxy(Proxy.getProxy(DeviceConfigurationRequest, {DeviceId:this.selectedDeviceId.DeviceId, DeviceNumber: this.selectedDeviceId.DeviceNumber})); // TODO
         this.DeviceConfigurationStore.load();
         // TODO belm : we must do something when it doesn't load correctly.
     },
