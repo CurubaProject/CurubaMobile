@@ -41,14 +41,14 @@ Ext.define('Domum.controller.Devices.Statistics.StatisticsController', {
 
     init: function () {
         this.callParent();
-        var that = this;
-        Publisher.subscribe(that);
+        Publisher.subscribe(this);
     },
 
     notify: function (event, param) {
         if (event === Constants.STATISTICSSTORE_LOAD) {
+			var that = this;
             this.getChart().redraw();
-            setTimeout(function () {this.getChart().redraw();}, 100);
+            setTimeout(function () {that.getChart().redraw();}, 100);
         }
         else if (event == Constants.DEVICEDETAILS_NEWID) {
             this.deviceId = param;
@@ -57,7 +57,7 @@ Ext.define('Domum.controller.Devices.Statistics.StatisticsController', {
 
     requestStatisticsByYear: function () {
         var store = StoreFactory.DeviceStatisticStore.create();
-        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId, Granularity:Constants.STATISTICSGRANULARITY_BYYEAR}));
+        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId.DeviceId, DeviceNumber: this.deviceId.DeviceNumber, Granularity:Constants.STATISTICSGRANULARITY_BYYEAR}));
         store.load();
         this.getChartTitle().setHtml(language.get('STATISTICS_CHART_BY_YEAR_TITLE'));
         this.getChart().setStore(store);
@@ -66,7 +66,7 @@ Ext.define('Domum.controller.Devices.Statistics.StatisticsController', {
 
     requestStatisticsByMonth: function () {
         var store = StoreFactory.DeviceStatisticStore.create();
-        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId, Granularity:Constants.STATISTICSGRANULARITY_BYMONTH}));
+        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId.DeviceId, DeviceNumber: this.deviceId.DeviceNumber, Granularity:Constants.STATISTICSGRANULARITY_BYMONTH}));
         store.load();
         this.getChartTitle().setHtml(language.get('STATISTICS_CHART_BY_MONTH_TITLE'));
         this.getChart().setStore(store);
@@ -75,7 +75,7 @@ Ext.define('Domum.controller.Devices.Statistics.StatisticsController', {
 
     requestStatisticsByWeek: function () {
         var store = StoreFactory.DeviceStatisticStore.create();
-        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId, Granularity:Constants.STATISTICSGRANULARITY_BYWEEK}));
+        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId.DeviceId, DeviceNumber: this.deviceId.DeviceNumber, Granularity:Constants.STATISTICSGRANULARITY_BYWEEK}));
         store.load();
         this.getChartTitle().setHtml(language.get('STATISTICS_CHART_BY_WEEK_TITLE'));
         this.getChart().setStore(store);
@@ -84,7 +84,7 @@ Ext.define('Domum.controller.Devices.Statistics.StatisticsController', {
 
     requestStatisticsByDay: function () {
         var store = StoreFactory.DeviceStatisticStore.create();
-        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId, Granularity:Constants.STATISTICSGRANULARITY_BYDAY}));
+        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId.DeviceId, DeviceNumber: this.deviceId.DeviceNumber, Granularity:Constants.STATISTICSGRANULARITY_BYDAY}));
         store.load();
         this.getChartTitle().setHtml(language.get('STATISTICS_CHART_BY_DAY_TITLE'));
         this.getChart().setStore(store);

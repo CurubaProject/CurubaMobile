@@ -178,16 +178,20 @@ Ext.define('Domum.controller.Devices.DevicesController', {
     },
 
     saveConfiguration: function () {
-        var dataList = [];
-        for (var i = this.scheduleList.length; i--;) {
+		var data = this.DeviceConfigurationStore.first().data;
+		var dataList = [];
+		
+		for (var i = this.scheduleList.length; i--;) {
             dataList.push(Ext.JSON.encode(this.scheduleList[i].data));
         }
+		
+        var requestParams = {
+			DeviceSchedule : Ext.JSON.encode(dataList),
+			DeviceId : this.selectedDeviceId.DeviceId,
+			DeviceNumber : this.selectedDeviceId.DeviceNumber,
+			DeviceName : data.DeviceName
+		};
 
-        var requestParams = {};
-        requestParams = this.DeviceConfigurationStore.first().raw;
-        requestParams.DeviceSchedule = Ext.JSON.encode(dataList); // Passing an object here makes it an array in the server. why?
-
-        //this.DeviceConfigurationStore.first().set('DeviceSchedule',dataList);
         // TODO belm : not done.
         Proxy.JsonPRequest({route:'/setDeviceConfiguration'}, requestParams, function (e, ee) {
             alert('sync');

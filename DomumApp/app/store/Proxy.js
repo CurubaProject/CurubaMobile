@@ -18,7 +18,7 @@ var Proxy = {
         // TODO remove the default URL?
     //baseURL: 'http://dsrouteur.gel.usherbrooke.ca:8080',
     //baseURL: 'http://192.168.1.101:8080',
-    baseURL: 'http://192.168.20.139:8080',
+    baseURL: 'http://192.168.20.140:8080',
 	getProxy: function (type, params) {
 		return new Ext.data.proxy.JsonP({
 			url: Proxy.baseURL + type.route,
