@@ -20,6 +20,7 @@ var Constants = {
         // Device types
         DEVICETYPE_OUTLET : 'outlet',
         DEVICETYPE_DIMMER : 'dimmer',
+        DEVICETYPE_NOLOAD : 'no load',
 
         // Device states (TODO or status???)
         DEVICESTATUS_ON : 'on',
