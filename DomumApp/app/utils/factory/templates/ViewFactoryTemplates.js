@@ -16,16 +16,14 @@
 // ----------------------------------------------------------------------------
 var ViewFactoryTemplates = {
     getNewDeviceStatistics: function () {
-        var F = function () {};
-        F.prototype = {
+        var newTemplate = {
             xtype : 'DeviceStatisticsView'
         };
-        return new F();
+        return newTemplate;
     },
 
     getNewDeviceDetailsControlSlider: function () {
-        var F = function () {};
-        F.prototype = {
+        var newTemplate = {
             xtype: 'sliderfield',
             id: 'DeviceStatusControl',
             cls: 'toggleButton deviceInterruptor', // TODO belm : change this cls to something accurate.
@@ -46,12 +44,11 @@ var ViewFactoryTemplates = {
                 }
             }
         }
-        return new F();
+        return newTemplate;
     },
 
     getNewDeviceDetailsControlOnOff: function () {
-        var F = function () {};
-        F.prototype = {
+        var newTemplate = {
             xtype: 'togglefield',
             id: 'DeviceStatusControl',
             cls: 'toggleButton deviceInterruptor', // TODO belm : change this cls to something accurate.
@@ -71,13 +68,11 @@ var ViewFactoryTemplates = {
                 }
             }
         };
-        return new F();
+        return newTemplate;
     },
 
     getNewDeviceConfigurationTemplate: function () {
-       var F = function () {};
-       F.data = {};
-       F.prototype = {
+       var newTemplate = {
            xtype: 'container',
            layout: Layout.centerHboxLayout,
            items: [
@@ -93,7 +88,7 @@ var ViewFactoryTemplates = {
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
                            listeners: {
                                change: function () {
-                                   F.data.ScheduleFrom = this.getValue();
+                                   newTemplate.data.ScheduleFrom = this.getValue();
                                }
                            }
                        },
@@ -102,7 +97,7 @@ var ViewFactoryTemplates = {
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_TO'),
                            listeners: {
                                change: function () {
-                                   F.data.ScheduleTo = this.getValue();
+                                   newTemplate.data.ScheduleTo = this.getValue();
                                }
                            }
                        }
@@ -110,13 +105,11 @@ var ViewFactoryTemplates = {
                }
            ]
        };
-       return new F();
+       return newTemplate;
     },
     
     getNewDeviceConfigurationDimmerTemplate: function () {
-       var F = function () {};
-       F.data = {};
-       F.prototype = {
+       var newTemplate = {
            xtype: 'container',
            layout: Layout.centerHboxLayout,
            items: [
@@ -132,7 +125,7 @@ var ViewFactoryTemplates = {
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
                            listeners: {
                                change: function () {
-                                   F.data.ScheduleFrom = this.getValue();
+                                   newTemplate.data.ScheduleFrom = this.getValue();
                                }
                            }
                        },
@@ -141,7 +134,7 @@ var ViewFactoryTemplates = {
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_TO'),
                            listeners: {
                                change: function () {
-                                   F.data.ScheduleTo = this.getValue();
+                                   newTemplate.data.ScheduleTo = this.getValue();
                                }
                            }
                        },
@@ -150,7 +143,7 @@ var ViewFactoryTemplates = {
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_STATUS'),
                            listeners: {
                                change: function () {
-                                   F.data.ScheduleConfig.status = this.getValue();
+                                   newTemplate.data.ScheduleConfig.status = this.getValue();
                                }
                            }
                        },
@@ -158,7 +151,7 @@ var ViewFactoryTemplates = {
                }
            ]
        };
-       return new F();
+       return newTemplate;
     }
     
 };
