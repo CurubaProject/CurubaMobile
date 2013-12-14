@@ -84,7 +84,16 @@ Ext.define('Domum.controller.Devices.Statistics.StatisticsController', {
 
     requestStatisticsByDay: function () {
         var store = StoreFactory.DeviceStatisticStore.create();
-        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {DeviceId:this.deviceId.DeviceId, DeviceNumber: this.deviceId.DeviceNumber, Granularity:Constants.STATISTICSGRANULARITY_BYDAY}));
+		var now = new Date();
+		var formatedNow = now.getFullYear() + '-' + (now.getMonth()+1) + '-' + now.getDate();
+		console.log(formatedNow);
+        store.setProxy(Proxy.getProxy(DeviceStatisticsRequest, {
+			DeviceId: this.deviceId.DeviceId, 
+			DeviceNumber: this.deviceId.DeviceNumber, 
+			Granularity: Constants.STATISTICSGRANULARITY_BYDAY,
+			Date : formatedNow
+		}));
+			
         store.load();
         this.getChartTitle().setHtml(language.get('STATISTICS_CHART_BY_DAY_TITLE'));
         this.getChart().setStore(store);

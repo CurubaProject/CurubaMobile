@@ -128,7 +128,9 @@ Ext.define('Domum.controller.Devices.DevicesController', {
     loadDeviceDetailsView : function () {
         var data = this.deviceDetailsStore.first().data;
         this.getDevicesView().push({ xtype: 'DeviceDetailsView', title:data.DeviceName});
-        this.getDeviceDetailsView().add(ViewFactory.deviceDetailsControl.create(data.DeviceType));
+		var control = ViewFactory.deviceDetailsControl.create(data.DeviceType);
+		//TODO set value control.value = 100;
+        this.getDeviceDetailsView().add(control);
         this.getDeviceDetailsView().add(ViewFactory.deviceDetailsInfo.create(data.DeviceType));
     },
 
