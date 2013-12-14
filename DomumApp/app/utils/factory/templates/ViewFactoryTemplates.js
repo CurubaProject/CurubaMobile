@@ -76,87 +76,89 @@ var ViewFactoryTemplates = {
 
     getNewDeviceConfigurationTemplate: function () {
        var F = function () {};
-        F.prototype = {
-            xtype: 'container',
-            layout: Layout.centerHboxLayout,
-            items: [
-                {
-                    xtype: 'fieldset',
-                    items: [
-                        {
-                            xtype: 'titlebar',
-                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
-                        },
-                        {
-                            xtype: 'textfield',
-                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
-                            listeners: {
-                                change: function () {
-                                    newView.data.ScheduleFrom = this.getValue();
-                                }
-                            }
-                        },
-                        {
-                            xtype: 'textfield',
-                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_TO'),
-                            listeners: {
-                                change: function () {
-                                    newView.data.ScheduleTo = this.getValue();
-                                }
-                            }
-                        }
-                    ]
-                }
-            ]
-        };
-        return new F();
+       F.data = {};
+       F.prototype = {
+           xtype: 'container',
+           layout: Layout.centerHboxLayout,
+           items: [
+               {
+                   xtype: 'fieldset',
+                   items: [
+                       {
+                           xtype: 'titlebar',
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
+                       },
+                       {
+                           xtype: 'textfield',
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
+                           listeners: {
+                               change: function () {
+                                   F.data.ScheduleFrom = this.getValue();
+                               }
+                           }
+                       },
+                       {
+                           xtype: 'textfield',
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_TO'),
+                           listeners: {
+                               change: function () {
+                                   F.data.ScheduleTo = this.getValue();
+                               }
+                           }
+                       }
+                   ]
+               }
+           ]
+       };
+       return new F();
     },
     
     getNewDeviceConfigurationDimmerTemplate: function () {
        var F = function () {};
-        F.prototype = {
-            xtype: 'container',
-            layout: Layout.centerHboxLayout,
-            items: [
-                {
-                    xtype: 'fieldset',
-                    items: [
-                        {
-                            xtype: 'titlebar',
-                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
-                        },
-                        {
-                            xtype: 'textfield',
-                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
-                            listeners: {
-                                change: function () {
-                                    newView.data.ScheduleFrom = this.getValue();
-                                }
-                            }
-                        },
-                        {
-                            xtype: 'textfield',
-                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_TO'),
-                            listeners: {
-                                change: function () {
-                                    newView.data.ScheduleTo = this.getValue();
-                                }
-                            }
-                        },
-                        {
-                            xtype: 'textfield',
-                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_STATUS'),
-                            listeners: {
-                                change: function () {
-                                    newView.data.ScheduleConfig.status = this.getValue();
-                                }
-                            }
-                        },
-                    ]
-                }
-            ]
-        };
-        return new F();
+       F.data = {};
+       F.prototype = {
+           xtype: 'container',
+           layout: Layout.centerHboxLayout,
+           items: [
+               {
+                   xtype: 'fieldset',
+                   items: [
+                       {
+                           xtype: 'titlebar',
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
+                       },
+                       {
+                           xtype: 'textfield',
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
+                           listeners: {
+                               change: function () {
+                                   F.data.ScheduleFrom = this.getValue();
+                               }
+                           }
+                       },
+                       {
+                           xtype: 'textfield',
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_TO'),
+                           listeners: {
+                               change: function () {
+                                   F.data.ScheduleTo = this.getValue();
+                               }
+                           }
+                       },
+                       {
+                           xtype: 'selectfield',
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_STATUS'),
+                           listeners: {
+                               change: function () {
+                                   F.data.ScheduleConfig.status = this.getValue();
+                               }
+                           }
+                       },
+                   ]
+               }
+           ]
+       };
+       return new F();
     }
     
 };
