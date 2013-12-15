@@ -126,8 +126,9 @@ Ext.define('Domum.controller.Devices.DevicesController', {
     },
 
     loadDeviceDetailsView : function () {
+		console.log('ICI');
         var data = this.deviceDetailsStore.first().data;
-        this.getDevicesView().push({ xtype: 'DeviceDetailsView', title:data.DeviceName});
+        this.getDevicesView().push({ xtype: 'DeviceDetailsView', title: data.DeviceName});
 		var control = ViewFactory.deviceDetailsControl.create(data.DeviceType);
 		//TODO set value control.value = 100;
         this.getDeviceDetailsView().add(control);
@@ -180,10 +181,12 @@ Ext.define('Domum.controller.Devices.DevicesController', {
     },
 
     saveConfiguration: function () {
+		var that = this;
 		var data = this.DeviceConfigurationStore.first().data;
 		var dataList = [];
 		
 		for (var i = this.scheduleList.length; i--;) {
+		console.log(this.scheduleList[i].data);
             dataList.push(Ext.JSON.encode(this.scheduleList[i].data));
         }
 		
@@ -196,7 +199,10 @@ Ext.define('Domum.controller.Devices.DevicesController', {
 
         // TODO belm : not done.
         Proxy.JsonPRequest({route:'/setDeviceConfiguration'}, requestParams, function (e, ee) {
-            alert('sync');
+		console.log(Ext.Viewport.getNavigationBar().setTitle(data.DeviceName));
+			that.getDevicesView().getNavigationBar().setTitle(data.DeviceName);
+			that.getDeviceList().getStore().removeAll();
+            that.getDeviceList().getStore().load();
         });
         // TODO belm : is this the proper way to write information with a proxy? It didn't work...
         //this.DeviceConfigurationStore.sync();
