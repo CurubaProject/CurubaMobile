@@ -22,11 +22,14 @@ var StoreFactory = {
             var store;
             if (StoreFactory.debug === true) {
                 store = {
-                    data : [{ DeviceId:'345', DeviceName:'Living room lamp', DeviceType:'dimmer', DeviceStatus:'On' },
-                                { DeviceId:'345', DeviceName:'TV', DeviceType:'outlet', DeviceStatus:'On' },
-                                { DeviceId:'345', DeviceName:'Room lamp', DeviceType:'outlet', DeviceStatus:'On' },
-                                { DeviceId:'345', DeviceName:'Kettle', DeviceType:'outlet', DeviceStatus:'On' },
-                                { DeviceId:'345', DeviceName:'Heater', DeviceType:'dimmer', DeviceStatus:'On' }],
+                    data : [
+                        { DeviceId:'1', DeviceName:'Outlet On', DeviceType:Constants.DEVICETYPE_OUTLET, DeviceStatus:Constants.DEVICESTATUS_ON },
+                        { DeviceId:'2', DeviceName:'Outlet Off', DeviceType:Constants.DEVICETYPE_OUTLET, DeviceStatus:Constants.DEVICESTATUS_OFF },
+                        { DeviceId:'3', DeviceName:'Dimmer On', DeviceType:Constants.DEVICETYPE_DIMMER, DeviceStatus:Constants.DEVICESTATUS_ON },
+                        { DeviceId:'4', DeviceName:'Dimmer Off', DeviceType:Constants.DEVICETYPE_DIMMER, DeviceStatus:Constants.DEVICESTATUS_OFF },
+                        { DeviceId:'5', DeviceName:'No load On', DeviceType:Constants.DEVICETYPE_NOLOAD, DeviceStatus:Constants.DEVICESTATUS_ON },
+                        { DeviceId:'6', DeviceName:'No load Off', DeviceType:Constants.DEVICETYPE_NOLOAD, DeviceStatus:Constants.DEVICESTATUS_OFF }
+                    ],
 
                     load : function () {
                         return this;

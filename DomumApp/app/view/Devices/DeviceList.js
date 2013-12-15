@@ -36,10 +36,12 @@ var listDeviceItemTpl = new Ext.XTemplate(
         selectType : function (type) {
             var result = '';
 
-            if (type === 'dimmer') {
+            if (type === Constants.DEVICETYPE_OUTLET) {
                 result = 'fa fa-lightbulb-o';
-            } else {
+            } else if (type === Constants.DEVICETYPE_DIMMER) {
                 result = 'fa fa-bolt';
+            } else if (type === Constants.DEVICETYPE_NOLOAD) {
+                result = 'fa fa-exclamation-triangle';
             }
 
             return result;
@@ -53,14 +55,12 @@ Ext.define('Domum.view.Devices.DeviceList', {
     id: 'DeviceList',
 
     config: {
-        //store: 'DeviceStore',
 		loadingText: null,
         itemTpl: listDeviceItemTpl,
 
         listeners: {
             initialize: function () {
                 Publisher.publish(Constants.DEVICELIST_INITIALIZE);
-                //console.log('BONJOUR TOI');
             }
         }
     }
