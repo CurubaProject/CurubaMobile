@@ -36,9 +36,9 @@ var listDeviceItemTpl = new Ext.XTemplate(
         selectType : function (type) {
             var result = '';
 
-            if (type === Constants.DEVICETYPE_OUTLET) {
+            if (type === Constants.DEVICETYPE_DIMMER) {
                 result = 'fa fa-lightbulb-o';
-            } else if (type === Constants.DEVICETYPE_DIMMER) {
+            } else if (type === Constants.DEVICETYPE_OUTLET) {
                 result = 'fa fa-bolt';
             } else if (type === Constants.DEVICETYPE_NOLOAD) {
                 result = 'fa fa-exclamation-triangle';
