@@ -15,7 +15,7 @@
 // along with 'Curuba Mobile'.  If not, see <http://www.gnu.org/licenses/>.
 // ----------------------------------------------------------------------------
 var StoreFactory = {
-    debug : false, // TODO belm : There should be a mechanism so that when testing, testing files are loaded (with mock object, etc.)
+    debug : true, // TODO belm : There should be a mechanism so that when testing, testing files are loaded (with mock object, etc.)
                   // maybe with debug option with app.json?...
     DeviceListStore : {
         create : function () {

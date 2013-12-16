@@ -73,8 +73,12 @@ var ViewFactory = {
                 var viewItems = newView.items[0].items;
                 
                 viewItems[viewItems.length] = {
-                    xtype: 'textfield',
+                    xtype: 'selectfield',
                     label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_STATUS'),
+                    options: [
+                        {text: Constants.DEVICESTATUS_OFF,  value: Constants.DEVICESTATUS_OFF},
+                        {text: Constants.DEVICESTATUS_ON, value: Constants.DEVICESTATUS_ON}
+                    ],
                     listeners: {
                         change: function () {
                             newView.data.ScheduleConfig.status = this.getValue();
@@ -110,8 +114,12 @@ var ViewFactory = {
                var viewItems = newView.items[0].items;
                 
                 viewItems[newView.items[0].items.length] = {
-                    xtype: 'textfield',
+                    xtype: 'selectfield',
                     label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_STATUS'),
+                    options: [
+                        {text: Constants.DEVICESTATUS_OFF,  value: Constants.DEVICESTATUS_OFF},
+                        {text: Constants.DEVICESTATUS_ON, value: Constants.DEVICESTATUS_ON}
+                    ],
                     listeners: {
                         change: function () {
                             newView.data.ScheduleConfig.status = this.getValue();
@@ -121,6 +129,8 @@ var ViewFactory = {
                 
                 viewItems[newView.items[0].items.length] = {
                     xtype: 'textfield',
+                    placeHolder: '0 to 100',
+                    maxLength: 3,
                     label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_VALUE'),
                     listeners: {
                         change: function () {

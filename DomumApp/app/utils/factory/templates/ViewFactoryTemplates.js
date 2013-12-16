@@ -81,11 +81,13 @@ var ViewFactoryTemplates = {
                    items: [
                        {
                            xtype: 'titlebar',
-                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'), // TODO belm 2013-12-15 : why is it the same than the textfield label? remove?
                        },
                        {
                            xtype: 'textfield',
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
+                           placeHolder: 'HH:MM',
+                           maxLength: 5,
                            listeners: {
                                change: function () {
                                    newTemplate.data.ScheduleFrom = this.getValue();
@@ -95,6 +97,8 @@ var ViewFactoryTemplates = {
                        {
                            xtype: 'textfield',
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_TO'),
+                           placeHolder: 'HH:MM',
+                           maxLength: 5,
                            listeners: {
                                change: function () {
                                    newTemplate.data.ScheduleTo = this.getValue();
@@ -108,7 +112,7 @@ var ViewFactoryTemplates = {
        return newTemplate;
     },
     
-    getNewDeviceConfigurationDimmerTemplate: function () {
+    getNewDeviceConfigurationDimmerTemplate: function () { // TODO belm 2013-12-15 : is this ever used?
        var newTemplate = {
            xtype: 'container',
            layout: Layout.centerHboxLayout,
@@ -118,11 +122,13 @@ var ViewFactoryTemplates = {
                    items: [
                        {
                            xtype: 'titlebar',
-                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
+                           label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'), // TODO belm 2013-12-15 : why is it the same than the textfield label? remove?
                        },
                        {
                            xtype: 'textfield',
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_FROM'),
+                           placeHolder: 'HH:MM',
+                           maxLength: 5,
                            listeners: {
                                change: function () {
                                    newTemplate.data.ScheduleFrom = this.getValue();
@@ -132,6 +138,8 @@ var ViewFactoryTemplates = {
                        {
                            xtype: 'textfield',
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_TO'),
+                           placeHolder: 'HH:MM',
+                           maxLength: 5,
                            listeners: {
                                change: function () {
                                    newTemplate.data.ScheduleTo = this.getValue();
@@ -139,8 +147,10 @@ var ViewFactoryTemplates = {
                            }
                        },
                        {
-                           xtype: 'selectfield',
+                           xtype: 'textfield',
                            label: language.get('DEVICE_CONFIGURATION_SCHEDULE_TEXTFIELD_STATUS'),
+                           placeHolder: '0 to 100',
+                           maxLength: 3,
                            listeners: {
                                change: function () {
                                    newTemplate.data.ScheduleConfig.status = this.getValue();
